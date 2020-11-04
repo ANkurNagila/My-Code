@@ -3,6 +3,7 @@ N,Q=map(int,input().split(" "))
 A=list(map(int,input().split(" ")))
 
 while Q>0:
+    
     L,R=map(int,input().split(" "))
     sum=0
     for i in range(L-1,int(R/2)+1):
