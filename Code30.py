@@ -33,11 +33,9 @@ def lcm(D):
             if j not in common:
                 common.append(j)
 
-    #print(common)
 
     removing_some_multiples(common)
 
-    #print(common)
     for k in common:
         result=result*k
     return result
