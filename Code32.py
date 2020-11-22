@@ -7,8 +7,8 @@ Test=int(input())
 for i in range(Test):
     res=""
     x,y=map(int,input().split(" "))
-    p=T[:2*x-1]
-    r=T[2*y-1:]
+    p=T[:2*x-2]
+    r=T[2*y:]
     #print(T[2*y-1:])
 
     q=T[2*x-2:2*y].replace("0","A")
@@ -34,6 +34,7 @@ for i in range(Test):
         res=q
         #print("4")
     T=res
-    print(T)
+    #print(T)
 
+print(T.count("1"))
 print(T)
