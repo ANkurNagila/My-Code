@@ -1,33 +1,28 @@
+from collections import Counter
+
 N,R,C=map(int,input().split(" "))
 
 A=[]
 
 for i in range(N):
-    B=list(map(int,input().strip().split(" ")))
-    A.append(B)
+    A.append(list(map(int,input().split())))
 
-x=list(map(int,input().strip().split(" ")))[:R]
-y=list(map(int,input().strip().split(" ")))[:C]
+x=Counter(list(map(int,input().split())))
+y=Counter(list(map(int,input().split())))
 
 for i in x:
     #print("\n",A[i-1])
-    A[i-1]= A[i-1][-1:] + A[i-1][:-1]
+    A[i-1]= A[i-1][-x[i]:] + A[i-1][:-x[i]]
     #print(A[i-1])
 #print(A)
-for j in y:
-    for i in range(N,0,-1):
-        if i==N:
-            t=A[i-1][j-1]
-            A[i-1][j-1]=A[i-2][j-1]
-        elif i==1:
-            A[i-1][j-1]=t
-        else:
-            A[i-1][j-1]=A[i-2][j-1]
 
-    #print(j,":\t",A)
+A=list(map(list,zip(*[i for i in A])))
+
+for j in y:
+    A[j-1]= A[j-1][-y[j]:] + A[j-1][:-y[j]]
+
+A=list(map(list,zip(*[i for i in A])))
+
 
 for i in range(N):
-    for j in range(N):
-        print(A[i][j],end=" ")
-    print()
-#print(A)
+    print(' '.join(map(str,A[i])))
