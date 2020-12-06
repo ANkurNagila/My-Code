@@ -1,4 +1,4 @@
-for _ in range(int(input())):
+for i in range(int(input())):
     s = input()
     s1 = s[0].lower()
     for c in s[1:]:
