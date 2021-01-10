@@ -1,23 +1,29 @@
-import re
 from pprint import pprint
 file=open("D:\eext.txt")
-line2=""
-result=[]
-line2=""
-for line in file:
-    line2=line2+line
-    x=re.findall(r"(\S+\s){70}",line2)
+file=file.read()
 
-    for i in x:
-        for count==0:
-            res1=line2.index(i)
-        i=i.strip()
-        result.append(line2[:])
-        line2=line2[line2.index(i)+1:]
-pprint(result)
+words=file.split(" ")
+x=0
+y=70
+count=0
+countl=0
+result=[]
+for i in range(1,len(words)//70+2):
+    a=words[x:y]
+    x=y
+    y=(i+1)*70
+    count+=70
+    countl+=1
+    t=" ".join(a)
+    result.append(t)
+
+if len(words)%70!=0:
+    result.append(" ".join(words[x:]))
+    l_1=1
+else:
+    l_1=0
 
 for i in result:
-    x=i.split(" ")
-    print(len(x))
-
-print(result[2])
+    print(i)
+print("Number of words:",count+len(words)%70)
+print("Number of sentences:",countl+l_1)
