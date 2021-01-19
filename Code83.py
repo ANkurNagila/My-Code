@@ -7,3 +7,4 @@ for i in range(1,N):
         Array[i]=Array[i]+x+1
         sum+=x+1
 print(sum)
+print()
